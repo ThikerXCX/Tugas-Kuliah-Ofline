@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="$0000ff"
+                android:background="#000fff"
                 android:text="TI"
                 android:gravity="center"
                 android:textColor="#fff"
