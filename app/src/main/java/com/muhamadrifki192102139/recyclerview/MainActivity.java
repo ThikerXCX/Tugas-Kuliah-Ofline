@@ -22,14 +22,31 @@ import cz.msebera.android.httpclient.Header;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView _recyclerView1;
-    private FloatingActionButton _addButton;
+    private FloatingActionButton _addButton,_loadButton;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         _recyclerView1 =  (RecyclerView) findViewById(R.id.recyclerView1);
+        loadButton();
+        initAddButton();
+        loadRecyclerView();
+    }
 
+    private void loadButton() {
+        _loadButton = findViewById(R.id.loadButton);
+        _loadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadRecyclerView();
+            }
+        });
+
+    }
+
+    private void loadRecyclerView() {
         AsyncHttpClient ahc = new AsyncHttpClient();
         String url = "https://stmikpontianak.net/011100862/tampilMahasiswa.php";
 
@@ -51,9 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
-
-        initAddButton();
     }
+
     private void initAddButton(){
         _addButton = findViewById(R.id.addButton);
 
@@ -65,4 +81,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

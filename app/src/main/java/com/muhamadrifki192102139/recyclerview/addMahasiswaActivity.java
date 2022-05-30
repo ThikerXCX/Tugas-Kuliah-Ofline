@@ -3,12 +3,15 @@ package com.muhamadrifki192102139.recyclerview;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.loopj.android.http.AsyncHttpClient;
@@ -37,9 +40,6 @@ public class addMahasiswaActivity extends AppCompatActivity {
     }
 
     private void initSaveButton() {
-    }
-
-    private void initInputs() {
         _saveButton = findViewById(R.id.saveButton);
         _saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,8 +64,50 @@ public class addMahasiswaActivity extends AppCompatActivity {
                 }catch (UnsupportedEncodingException e){
                     e.printStackTrace();
                 }
+
+                String url = "https://stmikpontianak.net/011100862/tambahMahasiswa.php" +
+                        "?nim=" + nim +
+                        "&nama=" + nama +
+                        "&jenisKelamin=" + jenisKelamin +
+                        "&tempatLahir=" + tempatLahir +
+                        "&tanggalLahir=" + tanggallahir +
+                        "&alamat=" + alamat +
+                        "&jp=" + jp +
+                        "&statusNikah="+statusNikah+
+                        "&tahunMasuk=" + tahunmasuk ;
+
+                Log.d("*tw",url);
+
+                AsyncHttpClient ahc = new AsyncHttpClient();
+                ahc.get(url, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        Log.d("*tw",new String(responseBody));
+                        new AlertDialog.Builder(addMahasiswaActivity.this)
+                                .setTitle("Berhasil")
+                                .setMessage("berhasil ditambahkan")
+                                .show();
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
         });
+    }
 
+    private void initInputs() {
+        _alamatEditText = findViewById(R.id.alamatEditText);
+        _jenisKelaminSpinner = findViewById(R.id.jenisKelaminSpinner);
+        _jpSpinner = findViewById(R.id.jpSpinner);
+        _namaEditText = findViewById(R.id.namaEditText);
+        _nimEditText = findViewById(R.id.nimEditText);
+        _statusNikahSpinner = findViewById(R.id.statusNikahSpinner);
+        _tahunMasukEditText = findViewById(R.id.tahunMasukEditText);
+        _tanggalLahitEditText = findViewById(R.id.tanggalLahirEditText);
+        _tempatLahirEditText = findViewById(R.id.tempatLahirEditText);
     }
 }

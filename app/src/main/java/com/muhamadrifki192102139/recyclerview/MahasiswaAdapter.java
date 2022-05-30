@@ -31,11 +31,11 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaViewHolder> 
         if(mm.getJenisKelamin().toLowerCase().equals("perempuan")){
             holder._jkImageView.setImageResource(R.drawable.girl);
         }
-        holder._nimTextView.setText(mm.getNim());
+        holder._nimTextView.setText(mm.getNIM());
         holder._namaTextView.setText(mm.getNama());
         holder._jkTextView.setText(mm.getJenisKelamin());
 
-        String jp = mm.getjP();
+        String jp = mm.getJP();
         jp = jp.substring(0,2);
         holder._jpTextView.setText(jp);
     }

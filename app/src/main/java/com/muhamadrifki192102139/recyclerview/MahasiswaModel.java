@@ -1,38 +1,40 @@
 package com.muhamadrifki192102139.recyclerview;
 
 public class MahasiswaModel {
-    private String nim,nama,jenisKelamin,jP;
+    private String NIM,Nama,JenisKelamin,JP;
     public MahasiswaModel(){
 
     }
-    public String getNim(){
-        return nim;
-    }
-    public void setNim(String nim) {
-        this.nim = nim;
-    }
 
     public String getNama() {
-        return nama;
+        return Nama;
     }
 
     public void setNama(String nama) {
-        this.nama = nama;
+        Nama = nama;
     }
 
     public String getJenisKelamin() {
-        return jenisKelamin;
+        return JenisKelamin;
     }
 
     public void setJenisKelamin(String jenisKelamin) {
-        this.jenisKelamin = jenisKelamin;
+        JenisKelamin = jenisKelamin;
     }
 
-    public String getjP() {
-        return jP;
+    public String getJP() {
+        return JP;
     }
 
-    public void setjP(String jP) {
-        this.jP = jP;
+    public void setJP(String JP) {
+        this.JP = JP;
     }
+
+    public void setNIM(String NIM) {
+        this.NIM = NIM;
+    }
+    public String getNIM(){
+        return NIM;
+    }
+
 }
