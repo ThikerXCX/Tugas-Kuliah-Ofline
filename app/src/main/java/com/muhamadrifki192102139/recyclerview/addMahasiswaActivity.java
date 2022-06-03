@@ -73,7 +73,7 @@ public class addMahasiswaActivity extends AppCompatActivity {
                         "&tanggalLahir=" + tanggallahir +
                         "&alamat=" + alamat +
                         "&jp=" + jp +
-                        "&statusNikah="+statusNikah+
+                        "&statusPernikahan="+statusNikah+
                         "&tahunMasuk=" + tahunmasuk ;
 
                 Log.d("*tw",url);
@@ -85,7 +85,7 @@ public class addMahasiswaActivity extends AppCompatActivity {
                         Log.d("*tw",new String(responseBody));
                         new AlertDialog.Builder(addMahasiswaActivity.this)
                                 .setTitle("Berhasil")
-                                .setMessage("berhasil ditambahkan")
+                                .setMessage(url)
                                 .show();
                     }
 
