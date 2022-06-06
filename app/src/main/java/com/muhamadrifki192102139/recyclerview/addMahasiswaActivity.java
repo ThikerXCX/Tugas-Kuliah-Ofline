@@ -85,7 +85,7 @@ public class addMahasiswaActivity extends AppCompatActivity {
                         Log.d("*tw",new String(responseBody));
                         new AlertDialog.Builder(addMahasiswaActivity.this)
                                 .setTitle("Berhasil")
-                                .setMessage(url)
+                                .setMessage("berhasil input")
                                 .show();
                     }
 
